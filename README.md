@@ -6,22 +6,24 @@
 
 ### Running the docker container
 
-```
-./scripts/run.sh
-```
-
-Run several containers
+The syntax is as follows:
 
 ```
-./scripts/run.sh 5
+./scripts/run.sh [mvdsv|qtv|qwfwd] [num]
 ```
 
-This will start 5 mvdsv instances.
+The `num` parameter is the amount of servers to start.
 
-### Choosing what port to run
+```
+./scripts/run.sh mvdsv 2
+```
+
+This will start 2 mvdsv containers.
+
+### Choosing port range
 
 ```
 echo 28501 > conf/port
 ```
 
-This determines what port the servers start running at. The next instance will get port number {port}+1.
+This will set the port range to 28501-(28501+n).

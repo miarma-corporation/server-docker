@@ -6,12 +6,14 @@ port=$(cat $DOCKERFOLDER/conf/port)
 server=${1:-mvdsv}
 num=${2:-1}
 
+[ "$server" != "mvdsv" ] && [ "$server" != "qtv" ] && [ "$server" != "qwfwd" ] && echo "Invalid server type (available: mvdsv, qtv, qwfwd)." && exit 1
+
 ip=$(curl -s https://ifcfg.me/)
 echo "Setting IP to $ip"
 echo $ip > $DOCKERFOLDER/conf/ip
 
 echo "* Removing old containers..."
-docker rm -f `docker ps -a -f name=nquakesv-\* --format "{{.ID}}"`
+docker rm -f `docker ps -a -f name=nquakesv-$server-\* --format "{{.ID}}"`
 
 echo "* Starting new containers..."
 for i in `seq 1 ${num}`; do

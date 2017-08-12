@@ -2,7 +2,7 @@
 
 SCRIPTFOLDER=$(dirname `readlink -f "$0"`)
 DOCKERFOLDER=$(readlink -f $SCRIPTFOLDER/../)
-port=$(cat $DOCKERFOLDER/conf/docker-port)
+port=$(cat $DOCKERFOLDER/conf/port)
 server=${1:-mvdsv}
 num=${2:-1}
 

@@ -1,3 +1,9 @@
+# nQuake server docker
+
+This project encapsulates the nQuake server inside an Ubuntu 16.04 docker image and provides helper scripts that make starting and stopping the containers very easy.
+
+When the containers are started, configuration files are linked to the `conf/server` folder inside the repository. These can then be altered as long as the server containers are restarted (currently by stopping and starting them using the helper scripts).
+
 ### Building docker image
 
 ```

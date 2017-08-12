@@ -1,8 +1,10 @@
 FROM ubuntu:latest
 MAINTAINER Niclas Lindtedt <nicl@slindstedt.se>
-ENV REFRESHED_AT 2017-08-12
+ENV REFRESHED_AT 2017-08-14
+ARG DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y apt-utils \
+  && apt-get install -y \
   unzip \
   wget \
   curl \
@@ -11,6 +13,7 @@ RUN apt-get update && apt-get install -y \
   gcc \
   libc6-dev \
   make \
+  pkg-config \
   && rm -rf /var/lib/apt/lists/*
 
 # Install mvdsv
@@ -33,7 +36,6 @@ RUN chmod +x install_nquakesv.sh \
   && sleep 1 \
   && ./install_nquakesv.sh -n /nquakesv
 RUN ln -s /root/.nquakesv /etc/nquakesv
-RUN echo "/nquakesv" > /etc/nquakesv/install_dir
 RUN mv /root/mvdsv /nquakesv/mvdsv
 RUN mv /root/qwprogs.so /nquakesv/ktx/qwprogs.so
 

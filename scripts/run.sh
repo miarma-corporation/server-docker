@@ -12,17 +12,19 @@ ip=$(curl -s https://ifcfg.me/)
 echo "Setting IP to $ip"
 echo $ip > $DOCKERFOLDER/conf/ip
 
-echo "* Removing old containers..."
-docker rm -f `docker ps -a -f name=nquakesv-$server-\* --format "{{.ID}}"`
+running=$(docker ps -a -f name=nquakesv-$server-\* --format "{{.ID}}")
+[ "$running" != "" ] && {
+  echo "* Stopping and removing old containers..."
+  docker rm -f $running 2>/dev/null
+}
 
 echo "* Starting new containers..."
 for i in `seq 1 ${num}`; do
   useport=$(($port + i - 1))
   docker run -d \
     -v $DOCKERFOLDER/conf:/etc/nquakesv \
-    --expose $useport \
-    -p $useport:$useport \
+    --network=host \
     --restart always \
-    --name nquakesv-$i \
+    --name nquakesv-$server-$i \
     nquake/server-linux $server $useport
 done

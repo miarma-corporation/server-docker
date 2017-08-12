@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 MAINTAINER Niclas Lindtedt <nicl@slindstedt.se>
-ENV REFRESHED_AT 2017-08-13
+ENV REFRESHED_AT 2017-08-12
 
 RUN apt-get update && apt-get install -y \
   unzip \
@@ -38,4 +38,5 @@ RUN mv /root/mvdsv /nquakesv/mvdsv
 RUN mv /root/qwprogs.so /nquakesv/ktx/qwprogs.so
 
 WORKDIR ["/nquakesv"]
-CMD ["/nquakesv/start_servers.sh"]
+ENTRYPOINT ["/nquakesv/start_servers.sh"]
+CMD ["mvdsv", "27500"]

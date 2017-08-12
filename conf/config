@@ -1,0 +1,4 @@
+SV_HOSTNAME="KTX Allround"
+SV_ADMININFO="Administrator <admin@example.com>"
+SV_RCON="changethis"
+SV_QTVPASS="changethis"

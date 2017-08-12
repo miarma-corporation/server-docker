@@ -10,32 +10,18 @@
 ./scripts/run.sh
 ```
 
-### Choosing what to run
-
-To run mvdsv in your container:
+Run several containers
 
 ```
-echo mvdsv > conf/docker
+./scripts/run.sh 5
 ```
 
-To run qtv in your container:
-
-```
-echo qtv > conf/docker
-```
-
-To run qwfwd in your container:
-
-```
-echo qwfwd > conf/docker
-```
-
-When the `conf/docker` file has been updated, run the `run.sh` script again.
+This will start 5 mvdsv instances.
 
 ### Choosing what port to run
 
 ```
-echo 28501 > conf/docker-port
+echo 28501 > conf/port
 ```
 
-When the `conf/docker` file has been updated, run the `run.sh` script again.
+This determines what port the servers start running at. The next instance will get port number {port}+1.

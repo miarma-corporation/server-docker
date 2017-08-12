@@ -24,6 +24,8 @@ To run qwfwd in your container:
 echo qwfwd > conf/docker
 ```
 
+When the `conf/docker` file has been updated, run the `run.sh` script again.
+
 ## Choosing what port to run
 
 ```

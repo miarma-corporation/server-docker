@@ -4,6 +4,12 @@
 ./scripts/build.sh
 ```
 
+## Running the docker container
+
+```
+./scripts/run.sh
+```
+
 ## Choosing what to run
 
 To run mvdsv in your container:
@@ -32,8 +38,4 @@ When the `conf/docker` file has been updated, run the `run.sh` script again.
 echo 28501 > conf/docker-port
 ```
 
-## Running the docker container
-
-```
-./scripts/run.sh
-```
+When the `conf/docker` file has been updated, run the `run.sh` script again.

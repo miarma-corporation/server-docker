@@ -21,6 +21,14 @@ To do this, right-click the Docker icon and select *Settings*, then click *Share
 
 Also, since nQuake server runs inside an Ubuntu image, you need to enable Linux containers if running on a Windows 10 host. Right-click the Docker icon and click *Switch to Linux Containers...*
 
+To enable running scripts in PowerShell, you will need to enable the unrestricted execution policy. Open an elevated PowerShell prompt and run the following command:
+
+```
+Set-ExecutionPolicy Unrestricted
+```
+
+Answer `y`.
+
 All done.
 
 ## Downloading

@@ -19,6 +19,10 @@ When Docker has been setup, make sure you share the drive that contains/will con
 
 To do this, right-click the Docker icon and select *Settings*, then click *Shared Drives* and check the drive that you will clone the nQuake server docker repository to.
 
+Also, since nQuake server runs inside an Ubuntu image, you need to enable Linux containers if running on a Windows 10 host. Right-click the Docker icon and click *Switch to Linux Containers...*
+
+All done.
+
 ## Downloading
 
 To download the files, simply open a terminal or Git bash prompt and enter:

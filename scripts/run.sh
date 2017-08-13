@@ -30,7 +30,7 @@ for i in `seq 1 ${num}`; do
   docker run -d \
     -v $DOCKERFOLDER/conf:/etc/nquakesv \
     --expose $useport \
-    -p $useport:$useport/udp
+    -p $useport:$useport/udp \
     --restart always \
     --name nquakesv-$server-$i \
     nquake/server-linux $server $useport

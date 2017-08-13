@@ -33,7 +33,7 @@ All done.
 
 ## Downloading
 
-To download the files, simply open a terminal or Git bash prompt and enter:
+To download the files, simply open a terminal or PowerShell prompt (depending on your OS):
 
 ```
 git clone https://github.com/nQuake/server-docker.git nquakesv-docker

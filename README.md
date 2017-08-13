@@ -152,3 +152,23 @@ cd nquakesv-docker
 .\scripts\run.ps1 mvdsv 3
 .\scripts\run.ps1 qtv
 ```
+
+### Configuring the server
+
+You might want to change some settings on the server. The configuration files are located in `conf/server` after running a container.
+
+These are the configuration files:
+
+Filename|Description
+---|---
+passwords.cfg|Passwords for server administration
+mvdsv.cfg|Configuration for the mvdsv server
+ktx.cfg|Configuration for the ktx mod
+port.cfg|Base configuration for ktx ports
+matchless.cfg|Configuration for matchless mode (ffa)
+vip_ip.cfg|List of VIP users
+ban_ip.cfg|List of banned IP numbers
+qtv.cfg|Configuration for qtv server
+qwfwd.cfg|Configuration for qwfwd proxy
+**demos/**|Folder for storing match demos
+**logs/**|Folder for storing server logs

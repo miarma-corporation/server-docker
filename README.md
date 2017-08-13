@@ -6,22 +6,20 @@ This project encapsulates the nQuake server inside an Ubuntu 16.04 docker image 
 
 When the containers are started, configuration files are linked to the `conf/server` folder inside the repository. These can then be altered if you want to update your server configuration. Don't forget to restart the servers after having modified the configuration!
 
-## Installing
-
-### Prerequisites
+## Prerequisites
 
 Before downloading and running nQuake server docker, you should install the following:
 
 * Git ([Windows](https://git-scm.com/download/win), [Linux](https://git-scm.com/download/linux))
 * Docker ([Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows), [Ubuntu](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/), [Other](https://www.docker.com/community-edition))
 
-### Configuring (Windows)
+### Configuring Docker on Windows
 
 When Docker has been setup, make sure you share the drive that contains/will contain the nQuake server docker files.
 
 To do this, right-click the Docker icon and select *Settings*, then click *Shared Drives* and check the drive that you will clone the nQuake server docker repository to.
 
-### Downloading
+## Downloading
 
 To download the files, simply open a terminal or Git bash prompt and enter:
 

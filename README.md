@@ -62,7 +62,7 @@ Linux:
 
 Windows (in elevated PowerShell prompt):
 ```
-.\scripts\run.sh [mvdsv|qtv|qwfwd] [num]
+.\scripts\run.ps1 [mvdsv|qtv|qwfwd] [num]
 ```
 
 The `num` parameter is the amount of servers to start.
@@ -101,7 +101,7 @@ Linux:
 
 Windows (in elevated PowerShell prompt):
 ```
-.\scripts\restart.sh [mvdsv|qtv|qwfwd]
+.\scripts\restart.ps1 [mvdsv|qtv|qwfwd]
 ```
 
 Example (Linux):
@@ -120,12 +120,12 @@ Linux:
 
 Windows (in elevated PowerShell prompt):
 ```
-.\scripts\stop.sh [mvdsv|qtv|qwfwd]
+.\scripts\stop.ps1 [mvdsv|qtv|qwfwd]
 ```
 
 Example (Windows):
 ```
-.\scripts\run.ps1 mvdsv
+.\scripts\stop.ps1 mvdsv
 ```
 
 This will stop all mvdsv containers.

@@ -117,3 +117,26 @@ Example (Windows):
 ```
 
 This will stop all mvdsv containers.
+
+## Scenarios
+
+Installing and running 4 mvdsv servers, 1 qtv and 1 qwfwd on Linux:
+
+```
+git clone https://github.com/nQuake/server-docker.git nquakesv-docker
+cd nquakesv-docker
+./scripts/build.sh
+./scripts/run.sh mvdsv 4
+./scripts/run.sh qtv
+./scripts/run.sh qwfwd
+```
+
+Installing and running 3 mvdsv servers and 1 qtv on Windows:
+
+```
+git clone https://github.com/nQuake/server-docker.git nquakesv-docker
+cd nquakesv-docker
+.\scripts\build.ps1
+.\scripts\run.ps1 mvdsv 3
+.\scripts\run.ps1 qtv
+```

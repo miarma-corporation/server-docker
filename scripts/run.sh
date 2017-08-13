@@ -29,7 +29,8 @@ for i in `seq 1 ${num}`; do
   useport=$(($port + i - 1))
   docker run -d \
     -v $DOCKERFOLDER/conf:/etc/nquakesv \
-    --network=host \
+    --expose $useport \
+    -p $useport:$useport/udp
     --restart always \
     --name nquakesv-$server-$i \
     nquake/server-linux $server $useport

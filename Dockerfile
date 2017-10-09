@@ -14,8 +14,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   unzip \
   wget \
   && rm -rf /var/lib/apt/lists/* \
-
-# Build and install mvdsv
 && git clone https://github.com/deurk/mvdsv.git \
   && cd mvdsv/build/make \
   && ./configure \
@@ -23,8 +21,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   && mv mvdsv /root/mvdsv \
   && cd .. \
   && rm -rf mvdsv \
-
-# Build and install ktx
 && git clone https://github.com/deurk/ktx.git \
   && cd ktx \
   && ./configure \
@@ -32,36 +28,29 @@ RUN apt-get update && apt-get install -y --no-install-recommends apt-utils \
   && mv qwprogs.so /root/qwprogs.so \
   && cd .. \
   && rm -rf ktx \
-
-# Build and install qtv
 && git clone https://github.com/deurk/qtv.git \
   && cd qtv \
   && make \
   && mv qtv.bin /root/qtv.bin \
   && cd .. \
   && rm -rf qtv \
-
-# Build and install qwfwd
 && git clone https://github.com/deurk/qwfwd.git \
   && cd qwfwd \
   && ./configure \
   && make \
   && mv qwfwd.bin /root/qwfwd.bin \
   && cd .. \
-  && rm -rf qwfwd \
+  && rm -rf qwfwd
 
-# Install nQuakesv
-&& curl -O -s https://raw.githubusercontent.com/nQuake/server-linux/master/src/install_nquakesv.sh \
+RUN curl -O -s https://raw.githubusercontent.com/nQuake/server-linux/master/src/install_nquakesv.sh \
 && chmod +x install_nquakesv.sh \
   && sleep 1 \
   && ./install_nquakesv.sh -n -q -d /nquakesv \
-&& ln -s /root/.nquakesv /etc/nquakesv \
-&& mv /root/mvdsv /nquakesv/mvdsv \
+  && ln -s /root/.nquakesv /etc/nquakesv \
+  && mv /root/mvdsv /nquakesv/mvdsv \
   && mv /root/qwprogs.so /nquakesv/ktx/qwprogs.so \
   && mv /root/qtv.bin /nquakesv/qtv/qtv.bin \
-  && mv /root/qwfwd.bin /nquakesv/ktx/qwfwd.bin \
-
-# Clean up stuff needed for compilations
+  && mv /root/qwfwd.bin /nquakesv/qwfwd/qwfwd.bin \
 && apt-get purge --auto-remove -y \
   curl \
   gcc \

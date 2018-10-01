@@ -14,7 +14,7 @@ num=${2:-1}
 [ "$server" = "qtv" ] && port=$qtvport && num=1 && echo "* Using qtv configuration"
 [ "$server" = "qwfwd" ] && port=$qwfwdport && num=1 && echo "* Using qwfwd configuration"
 
-ip=$(curl -s https://ifcfg.me/)
+ip=$(curl -s https://ifconfig.co/)
 echo "* Setting IP to $ip"
 echo $ip > $DOCKERFOLDER/conf/ip
 
@@ -29,6 +29,7 @@ for i in `seq 1 ${num}`; do
   useport=$(($port + i - 1))
   docker run -d \
     -v $DOCKERFOLDER/conf:/etc/nquakesv \
+    -v $DOCKERFOLDER/maps:/etc/nquakesv/id1/maps \
     --expose $useport \
     -p $useport:$useport/udp \
     --restart always \

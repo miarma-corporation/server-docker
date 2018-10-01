@@ -172,3 +172,7 @@ qtv.cfg|Configuration for qtv server
 qwfwd.cfg|Configuration for qwfwd proxy
 **demos/**|Folder for storing match demos
 **logs/**|Folder for storing server logs
+
+### Adding maps
+
+If you want to add maps, place them in the maps folder and restart nquakesv.

@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:16.04 as build
 MAINTAINER Niclas Lindtedt <nicl@slindstedt.se>
 ENV REFRESHED_AT 2017-08-12
 ARG DEBIAN_FRONTEND=noninteractive
@@ -50,16 +50,15 @@ RUN curl -O -s https://raw.githubusercontent.com/nQuake/server-linux/master/src/
   && mv /root/mvdsv /nquakesv/mvdsv \
   && mv /root/qwprogs.so /nquakesv/ktx/qwprogs.so \
   && mv /root/qtv.bin /nquakesv/qtv/qtv.bin \
-  && mv /root/qwfwd.bin /nquakesv/qwfwd/qwfwd.bin \
-&& apt-get purge --auto-remove -y \
-  curl \
-  gcc \
-  git \
-  libc6-dev \
-  make \
-  pkg-config \
-  unzip \
-  wget
+  && mv /root/qwfwd.bin /nquakesv/qwfwd/qwfwd.bin
+
+
+FROM ubuntu:16.04
+COPY --from=build /nquakesv /nquakesv
+COPY --from=build /root/.nquakesv /root/.nquakesv
+RUN apt-get update \
+  && apt-get install --no-install-recommends screen -y \
+  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR ["/nquakesv"]
 ENTRYPOINT ["/nquakesv/start_servers.sh"]
